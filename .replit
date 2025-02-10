@@ -1,15 +1,11 @@
-entrypoint = "main.py"
 modules = ["python-3.11"]
+[workflows]
+runButton = "Run"
 
-[nix]
-channel = "stable-24_05"
+[[workflows.workflow]]
+name = "Run"
+author = 34962319
 
-[unitTest]
-language = "python3"
-
-[gitHubImport]
-requiredFiles = [".replit", "replit.nix"]
-
-[deployment]
-run = ["python3", "main.py"]
-deploymentTarget = "cloudrun"
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python main.py"
